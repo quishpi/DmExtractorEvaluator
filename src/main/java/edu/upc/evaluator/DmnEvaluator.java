@@ -153,7 +153,10 @@ public class DmnEvaluator {
 											inputEntry.getValue().getInput(), inputEntry.getValue().getNegation()));
 						}
 					}
-					String outputEntryName = rule.getOutputEntry().getText();
+					String outputEntryName = "";
+					if (rule.getOutputEntry() != null)
+						outputEntryName = rule.getOutputEntry().getText();
+					
 					if (outputEntryName != null && !outputEntryName.isEmpty()) {
 						if (rule.getOutputEntry().getNegation()) {
 							if (decisionTable.getValue().getOutput().getTypeRef().equals(TypeRef_Table.BOOLEAN)) {
@@ -221,7 +224,9 @@ public class DmnEvaluator {
 							if (decisionTable.getValue().getRules() != null) {
 								for (Rule_Table rule : decisionTable.getValue().getRules()) {
 									LinkedHashMap<String, InputEntry_Rule> innputEntryList = rule.getInputEntries();
-									String outputEntryText = rule.getOutputEntry().getText().toLowerCase().trim();
+									String outputEntryText = "";
+									if (rule.getOutputEntry() != null)
+										outputEntryText = rule.getOutputEntry().getText().toLowerCase().trim();
 									Integer count = 0;
 									if (goldOutputEntryText.contains(outputEntryText)
 											|| outputEntryText.contains(goldOutputEntryText)) {

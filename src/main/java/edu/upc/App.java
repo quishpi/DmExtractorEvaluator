@@ -22,7 +22,7 @@ public class App {
 
 	public static void main(String[] args)
 			throws IOException, SAXException, ParserConfigurationException, ParseException {
-		if (args.length == 0) {
+		if (args.length != 0) {
 			FileWriter csvWriterRequirement = new FileWriter(DmnFoldersUrl.OUTPUT_FOLDER + "evaluationRequirement.csv");
 			FileWriter csvWriterLogic = new FileWriter(DmnFoldersUrl.OUTPUT_FOLDER + "evaluationLogic.csv");
 			String title = "File\tG-Decision\tG-InputData\tG-Requirement\tG-Total\t"
